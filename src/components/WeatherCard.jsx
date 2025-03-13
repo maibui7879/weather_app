@@ -4,7 +4,7 @@ const WeatherCard = ({ data }) => {
   const [isCelsius, setIsCelsius] = useState(true);
 
   return (
-    <div className="w-full md:w-max p-6 rounded-lg flex justify-between items-center text-white">
+    <div className="w-[422px] md:w-full mx-12 mt-12 bg-black bg-opacity-50 md:w-max p-6 rounded-xl flex justify-between text-white">
       
       <div className="flex items-center">
         
