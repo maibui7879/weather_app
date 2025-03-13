@@ -4,7 +4,9 @@ const WeatherCard = ({ data }) => {
   const [isCelsius, setIsCelsius] = useState(true);
 
   return (
-    <div className="w-full md:w-full mx-12 mt-12 bg-black bg-opacity-50 md:w-max p-6 rounded-xl flex justify-between text-white">
+    
+    <div className="w-full">
+      <div className="mt-32 bg-black bg-opacity-50 px-4 py-6 rounded-lg text-white mx-4 flex justify-between">
       
       <div className="flex items-center">
         
@@ -34,6 +36,7 @@ const WeatherCard = ({ data }) => {
         <p>Độ ẩm: {data.current.humidity}%</p>
         <p>Gió: {data.current.wind_kph} km/h</p>
       </div>
+    </div>
     </div>
   );
 };

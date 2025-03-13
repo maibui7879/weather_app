@@ -65,8 +65,9 @@ const WeatherSummary = ({ city }) => {
   };
 
   return (
+    <div className="w-full">
     <div
-      className="relative mx-6 w-full py-6 bg-black bg-opacity-50 shadow-lg rounded-lg text-white mt-4 text-center"
+      className="mt-2 bg-black bg-opacity-50 py-6 rounded-lg text-white mx-4 text-center"
       ref={slideRef}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
@@ -83,6 +84,7 @@ const WeatherSummary = ({ city }) => {
           />
         ))}
       </div>
+    </div>
     </div>
   );
 };

@@ -14,6 +14,7 @@ const WeatherInfo = ({ data }) => {
   ];
 
   return (
+    
     <div className="w-full min-h-screen flex-grow mt-4 px-4 md:px-12 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 gap-4">
       {info.map((item, index) => (
         <div key={index} className="p-6 py-10 bg-black bg-opacity-50 rounded rounded-2xl md:rounded-lg shadow text-left flex items-center text-white">
