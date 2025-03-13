@@ -28,7 +28,7 @@ const Home = () => {
   };
 
   const updateBackground = (condition) => {
-    if (condition.includes("mây") || condition.includes("ẩm") || condition.includes("âm u")) {
+    if (condition.includes("mây") || condition.includes("ẩm") || condition.includes("âm u") || condition.includes("sương")) {
       setBackground("/images/cloudy.png");
     } else if (condition.includes("bão") || condition.includes("mưa")) {
       setBackground("/images/rainy.png");
