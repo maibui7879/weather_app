@@ -26,7 +26,7 @@ const HourlyWeather = ({ city }) => {
 
   return (
     <div className="w-full">
-    <div className=" mt-8 bg-black bg-opacity-50 p-4 rounded-lg text-white mx-4">
+    <div className=" mt-2 bg-black bg-opacity-50 p-4 rounded-lg text-white mx-4">
       <div className="flex justify-between">
         {hourlyData.map((hour, index) => (
           <div key={index} className="flex flex-col items-center">
