@@ -10,7 +10,7 @@ const WeatherCard = ({ data }) => {
         
         <div className="mr-4">
         <div className="flex items-center">
-        <p className="text-7xl font-semibold">
+        <p className="text-5xl font-semibold">
           {isCelsius ? `${data.current.temp_c}` : `${data.current.temp_f}`}
         </p>
         <div className="flex flex-col text-left">
