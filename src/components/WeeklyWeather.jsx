@@ -32,7 +32,7 @@ const WeeklyWeather = ({ city }) => {
 
   return (
     <div className="w-full">
-      <div className="mt-2 bg-black bg-opacity-50 p-4 rounded-lg text-white mx-4">
+      <div className="mt-2 bg-black bg-opacity-50 p-4 rounded-lg text-white mx-4 ">
         <div className="flex flex-col">
           {weeklyData.map((day, index) => (
             <div key={index} className="flex items-center justify-between p-2 border-b border-gray-600">

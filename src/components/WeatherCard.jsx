@@ -31,8 +31,8 @@ const WeatherCard = ({ data }) => {
 
       </div>
 
-      <div className="text-right">
-        <p className="font-bold">{data.location.localtime}</p>
+      <div className="text-right font-bold text-sm">
+        <p >{data.location.localtime}</p>
         <p>Độ ẩm: {data.current.humidity}%</p>
         <p>Gió: {data.current.wind_kph} km/h</p>
       </div>

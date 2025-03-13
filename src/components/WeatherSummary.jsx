@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import axios from "axios";
 
 const API_KEY = "543a785a19ce440e8c275559251103";
@@ -8,6 +9,7 @@ const WeatherSummary = ({ city }) => {
   const [forecast, setForecast] = useState(null);
   const [current, setCurrent] = useState(null);
   const [slideIndex, setSlideIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
   const slideRef = useRef(null);
   let touchStartX = 0;
 
@@ -24,6 +26,7 @@ const WeatherSummary = ({ city }) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
+      setDirection(1);
       setSlideIndex((prev) => (prev + 1) % 3);
     }, 3000);
     return () => clearInterval(interval);
@@ -60,31 +63,45 @@ const WeatherSummary = ({ city }) => {
 
   const handleTouchEnd = (e) => {
     const touchEndX = e.changedTouches[0].clientX;
-    if (touchStartX - touchEndX > 50) setSlideIndex((prev) => (prev + 1) % 3);
-    if (touchEndX - touchStartX > 50) setSlideIndex((prev) => (prev - 1 + 3) % 3);
+    if (touchStartX - touchEndX > 50) {
+      setDirection(1);
+      setSlideIndex((prev) => (prev + 1) % 3);
+    }
+    if (touchEndX - touchStartX > 50) {
+      setDirection(-1);
+      setSlideIndex((prev) => (prev - 1 + 3) % 3);
+    }
   };
 
   return (
     <div className="w-full">
-    <div
-      className="mt-2 bg-black bg-opacity-50 py-6 rounded-lg text-white mx-4 text-center"
-      ref={slideRef}
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-    >
-      <h2 className="text-xl font-bold mb-2">{slides[slideIndex].title}</h2>
-      <p className="text-gray-300">{slides[slideIndex].content}</p>
-      <div className="flex justify-center mt-4 space-x-2">
-        {slides.map((_, index) => (
-          <span
-            key={index}
-            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === slideIndex ? "bg-white scale-125" : "bg-gray-500"
-            }`}
-          />
-        ))}
+      <div
+        className="mt-2 bg-black bg-opacity-50 py-6 rounded-lg text-white mx-4 text-center overflow-hidden "
+        ref={slideRef}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
+        <motion.div
+          key={slideIndex}
+          initial={{ x: direction * 100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          exit={{ x: -direction * 100, opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="text-xl font-bold mb-2">{slides[slideIndex].title}</h2>
+          <p className="text-gray-300 text-xs">{slides[slideIndex].content}</p>
+        </motion.div>
+        <div className="flex justify-center mt-4 space-x-2">
+          {slides.map((_, index) => (
+            <span
+              key={index}
+              className={`w-1 h-1 rounded-full transition-all duration-300 ${
+                index === slideIndex ? "bg-white w-2" : "bg-gray-300"
+              }`}
+            />
+          ))}
+        </div>
       </div>
-    </div>
     </div>
   );
 };

@@ -26,13 +26,13 @@ const HourlyWeather = ({ city }) => {
 
   return (
     <div className="w-full">
-    <div className=" mt-2 bg-black bg-opacity-50 p-4 rounded-lg text-white mx-4">
+    <div className=" mt-2 bg-black bg-opacity-50 p-4 py-6 rounded-lg text-white mx-4 ">
       <div className="flex justify-between">
         {hourlyData.map((hour, index) => (
-          <div key={index} className="flex flex-col items-center">
+          <div key={index} className="flex flex-col items-center text-sm">
             <p>{hour.time.split(" ")[1]}</p>
-            <img src={hour.condition.icon} alt={hour.condition.text} className="w-12 h-12" />
-            <p className="text-sm font-bold">{hour.temp_c}°C</p>
+            <img src={hour.condition.icon} alt={hour.condition.text} className="w-8 h-8" />
+            <p className="text-xs font-bold">{hour.temp_c}°C</p>
           </div>
         ))}
       </div>

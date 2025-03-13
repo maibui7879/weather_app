@@ -70,7 +70,7 @@ const Home = () => {
           </div>
         )}
 
-        <div className="mt-40 w-full min-h-screen flex flex-col items-center">
+        <div className="mt-40 w-full flex flex-col items-center">
           {weather && (
             <>
               <WeatherCard data={weather} />
