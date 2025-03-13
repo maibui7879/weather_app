@@ -20,7 +20,7 @@ const SearchBar = ({ onSearch, scrollY }) => {
 <form
   onSubmit={handleSubmit}
   className={`fixed right-4 p-auto rounded-lg transition-all duration-300 ease-in-out ${
-    scrollY > 50 ? "w-[80%] h-[50px]" : "w-[60%] h-[70px]"
+    scrollY > 50 ? "w-[40%] h-[50px]" : "w-[40%] h-[70px]"
   }`}
 >
 
