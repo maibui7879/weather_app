@@ -10,21 +10,21 @@ const WeatherCard = ({ data }) => {
         
         <div className="mr-4">
         <div className="flex items-center">
-        <p className="text-5xl font-semibold">
+        <p className="text-3xl font-semibold">
           {isCelsius ? `${data.current.temp_c}` : `${data.current.temp_f}`}
         </p>
         <div className="flex flex-col text-left">
           <button 
-            className="px-2 rounded-md font-bold hover:text-blue-800 text-left mt-3"
+            className="px-2 rounded-md font-bold  text-left"
             onClick={() => setIsCelsius(!isCelsius)}
           >
             {isCelsius ? "°C" : "°F"}
           </button>
-          <p className="ml-2 font-bold mt-3">{data.current.condition.text}</p>
-        </div>
-
-      </div>
           
+        </div>
+        
+      </div>
+      <p className=" font-bold mt-2">{data.current.condition.text}</p> 
         </div>
 
       </div>
