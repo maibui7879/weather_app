@@ -63,11 +63,20 @@ const Home = () => {
 
         {weather && (
           <div className={`fixed left-8 transition-all duration-300 ${scrollY > 50 ? "top-1 scale-75 left-4" : "top-[100px]"}`}>
-            <h1 className="text-5xl font-bold text-white">{weather.location.name}</h1>
-            <p className="text-xl text-gray-200 flex items-center gap-2">
-              <FaMapMarkerAlt /> {weather.location.country}
-            </p>
-          </div>
+          <h1
+            className={`font-bold text-white ${
+              weather.location.name.length > 6 ? "text-3xl" : "text-5xl"
+            }`}
+          >
+            {weather.location.name}
+          </h1>
+          <p className={`font-bold gap-2 flex items-center text-white ${
+              weather.location.name.length > 6 ? "text-lg" : "text-xl"
+            }`}>
+            <FaMapMarkerAlt /> {weather.location.country}
+          </p>
+        </div>
+
         )}
 
         <div className="mt-40 w-full flex flex-col items-center">

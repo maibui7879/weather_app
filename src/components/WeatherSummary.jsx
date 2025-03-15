@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion"
 import axios from "axios";
 
 const API_KEY = "543a785a19ce440e8c275559251103";
@@ -81,16 +81,24 @@ const WeatherSummary = ({ city }) => {
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
-        <motion.div
-          key={slideIndex}
-          initial={{ x: direction * 100, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: -direction * 100, opacity: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2 className="text-xl font-bold mb-2">{slides[slideIndex].title}</h2>
-          <p className="text-gray-300 text-xs">{slides[slideIndex].content}</p>
-        </motion.div>
+    <div className="relative h-20 overflow-hidden">
+    <AnimatePresence custom={direction} mode="popLayout">
+    <motion.div
+      key={slideIndex}
+      custom={direction}
+      initial={{ x: direction * 100 + "%" }}
+      animate={{ x: "0%" }}
+      exit={{ x: -direction * 100 + "%" }}
+      transition={{ duration: 0.5 }}
+      className="absolute w-full"
+    >
+      <h2 className="text-xl font-bold mb-2">{slides[slideIndex].title}</h2>
+      <p className="text-gray-300 text-xs">{slides[slideIndex].content}</p>
+    </motion.div>
+  </AnimatePresence>
+    </div>
+
+
         <div className="flex justify-center mt-4 space-x-2">
           {slides.map((_, index) => (
             <span
