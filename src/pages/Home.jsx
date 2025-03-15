@@ -58,7 +58,7 @@ const Home = () => {
 
       <div className="fixed top-0 left-0 w-full h-full bg-cover bg-center bg-no-repeat z-5 flex-grow" style={{ backgroundImage: `url(${background})`, backgroundSize: "cover" }}></div>
 
-      <div className="relative z-10 flex flex-col items-center w-full px-4">
+      <div className="relative z-10 flex flex-col items-center w-full ">
         <SearchBar onSearch={fetchWeather} className="w-full mt-8" />
 
         {weather && (
@@ -70,7 +70,7 @@ const Home = () => {
           >
             {weather.location.name}
           </h1>
-          <p className={`font-bold gap-2 flex items-center text-white ${
+          <p className={`font-bold gap-2 flex item-center text-white ${
               weather.location.name.length > 6 ? "text-lg" : "text-xl"
             }`}>
             <FaMapMarkerAlt /> {weather.location.country}

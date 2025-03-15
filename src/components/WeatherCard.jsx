@@ -12,12 +12,12 @@ const WeatherCard = ({ data }) => {
         
         <div className="mr-4">
         <div className="flex items-center">
-        <p className="text-3xl font-semibold">
+        <p className="text-5xl font-semibold">
           {isCelsius ? `${data.current.temp_c}` : `${data.current.temp_f}`}
         </p>
         <div className="flex flex-col text-left">
           <button 
-            className="px-2 rounded-md font-bold  text-left"
+            className="px-1 pb-3 rounded-md font-bold  text-left"
             onClick={() => setIsCelsius(!isCelsius)}
           >
             {isCelsius ? "°C" : "°F"}
@@ -31,10 +31,12 @@ const WeatherCard = ({ data }) => {
 
       </div>
 
-      <div className="text-right font-bold text-sm">
-        <p >{data.location.localtime}</p>
-        <p>Độ ẩm: {data.current.humidity}%</p>
-        <p>Gió: {data.current.wind_kph} km/h</p>
+      <div className="text-right text-sm flex flex-col h-full justify-between gap-y-5">
+        <p className="mb-auto text-base">{data.location.localtime}</p>
+        <div>
+          <p>Độ ẩm: {data.current.humidity}%</p>
+          <p>Gió: {data.current.wind_kph} km/h</p>
+        </div>
       </div>
     </div>
     </div>
